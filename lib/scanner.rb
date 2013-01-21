@@ -19,7 +19,7 @@ class Scanner
   end
 
   def get_page_html url
-    open(url).read
+    open(url, 'User-Agent' => 'ruby').read
   end
 
   def build_url
