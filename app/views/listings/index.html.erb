@@ -9,10 +9,20 @@
   </thead>
   <tbody>
   <% @listings.each do |listing| %>
+      <%
+         date_class = case
+                        when listing.date >= Date.today
+                          "text-success"
+                        when listing.date == Date.today - 1
+                          "text-warning"
+                        when listing.date <= Date.today - 2
+                          "text-error"
+                      end
+      %>
       <tr>
         <td class="name"><%= listing.name %></td>
         <td><%= listing.price %></td>
-        <td><%= listing.date.strftime("%b %d") %></td>
+        <td><p class="<%= date_class %>"><%= listing.date.strftime("%b %d") %></p></td>
         <td><%= link_to listing.link, listing.link %></td>
       </tr>
   <% end %>
