@@ -12,7 +12,7 @@
       <tr>
         <td class="name"><%= listing.name %></td>
         <td><%= listing.price %></td>
-        <td><%= listing.date %></td>
+        <td><%= listing.date.strftime("%b %d") %></td>
         <td><%= link_to listing.link, listing.link %></td>
       </tr>
   <% end %>

@@ -13,4 +13,10 @@ describe PageParser do
 
     listings.length.should == 100
   end
+
+  it "should return date objects" do
+    pp = PageParser.new
+    listings = pp.parse_into_listings File.read('spec/files/craigslistsearch.html')
+    listings[0].date.should be_kind_of Date
+  end
 end

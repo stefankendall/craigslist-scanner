@@ -18,8 +18,8 @@ class PageParser
     listing.link = link['href']
 
     listing.price = row.css('.itempp')[0].text.strip
-    listing.date = row.css('.itemdate')[0].text.strip
-
+    date_as_text = row.css('.itemdate')[0].text.strip
+    listing.date = Date.parse date_as_text
     listing
   end
 end
