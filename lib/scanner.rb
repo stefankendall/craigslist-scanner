@@ -19,7 +19,11 @@ class Scanner
   end
 
   def get_page_html url
-    open(url, 'User-Agent' => 'ruby').read
+    if Rails.env == "production"
+      open(url, :proxy => 'http://149.62.176.182:8080').read
+    else
+      open(url).read
+    end
   end
 
   def build_url
