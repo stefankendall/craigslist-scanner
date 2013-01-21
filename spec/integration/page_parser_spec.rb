@@ -10,6 +10,7 @@ describe PageParser do
     listings[0].price.should_not be_nil
     listings[0].date.should_not be_nil
     listings[0].link.should_not be_nil
+    listings[0].location.should_not be_nil
 
     listings.length.should == 100
   end
