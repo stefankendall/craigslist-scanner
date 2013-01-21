@@ -20,7 +20,7 @@ class Scanner
 
   def get_page_html url
     if Rails.env == "production"
-      open(url, :proxy => 'http://149.62.176.182:8080').read
+      open(url, :proxy => 'http://188.142.69.193:80').read
     else
       open(url).read
     end
