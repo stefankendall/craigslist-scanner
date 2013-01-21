@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table listings">
   <thead>
   <tr>
     <th>Name</th>
@@ -10,7 +10,7 @@
   <tbody>
   <% @listings.each do |listing| %>
       <tr>
-        <td><%= listing.name %></td>
+        <td class="name"><%= listing.name %></td>
         <td><%= listing.price %></td>
         <td><%= listing.date %></td>
         <td><%= link_to listing.link, listing.link %></td>
