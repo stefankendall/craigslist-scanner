@@ -29,4 +29,15 @@ describe Scanner do
     filtered = scanner.filter_listings_by_query listings
     filtered.length.should == 1
   end
+
+  it "should ignore case when filtering" do
+    scanner = Scanner.new(:query => 'iPad')
+    listings = [
+        Listing.new(:name => 'ipad 3'),
+        Listing.new(:name => 'IPAD 4'),
+        Listing.new(:name => 'guitar')
+    ]
+    filtered = scanner.filter_listings_by_query listings
+    filtered.length.should == 2
+  end
 end

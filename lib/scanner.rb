@@ -14,7 +14,7 @@ class Scanner
 
   def filter_listings_by_query listings
     listings.select do |listing|
-      listing.name.include?(@query)
+      listing.name.downcase.include?(@query.downcase)
     end
   end
 
