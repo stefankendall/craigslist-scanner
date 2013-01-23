@@ -6,5 +6,6 @@ class Listing
     @price = args[:price]
     @date = args[:date]
     @link = args[:link]
+    @location = args[:location]
   end
 end

@@ -4,6 +4,7 @@
     <th>Name</th>
     <th>Price</th>
     <th>Date</th>
+    <th>Location</th>
     <th>Link</th>
   </tr>
   </thead>
@@ -23,6 +24,7 @@
         <td class="name"><%= listing.name %></td>
         <td><%= listing.price %></td>
         <td><p class="<%= date_class %>"><%= listing.date.strftime("%b %d") %></p></td>
+        <td><%= listing.location %></td>
         <td><%= link_to listing.link, listing.link %></td>
       </tr>
   <% end %>

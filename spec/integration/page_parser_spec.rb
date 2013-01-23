@@ -20,4 +20,10 @@ describe PageParser do
     listings = pp.parse_into_listings File.read('spec/files/craigslistsearch.html')
     listings[0].date.should be_kind_of Date
   end
+
+  it "should sanitize locations" do
+    pp = PageParser.new
+    listings = pp.parse_into_listings File.read('spec/files/craigslistsearch.html')
+    listings[0].location.should_not include "("
+  end
 end
