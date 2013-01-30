@@ -18,26 +18,4 @@ describe Scanner do
     html = scanner.get_page_html(scanner.build_url())
     html.should include "<!DOCTYPE"
   end
-
-  it "should filter listings by title" do
-    scanner = Scanner.new(:query => 'iPad 4')
-    listings = [
-        Listing.new(:name => 'iPad 3'),
-        Listing.new(:name => 'iPad 4'),
-        Listing.new(:name => 'guitar')
-    ]
-    filtered = scanner.filter_listings_by_query listings
-    filtered.length.should == 1
-  end
-
-  it "should ignore case when filtering" do
-    scanner = Scanner.new(:query => 'iPad')
-    listings = [
-        Listing.new(:name => 'ipad 3'),
-        Listing.new(:name => 'IPAD 4'),
-        Listing.new(:name => 'guitar')
-    ]
-    filtered = scanner.filter_listings_by_query listings
-    filtered.length.should == 2
-  end
 end

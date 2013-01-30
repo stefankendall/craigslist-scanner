@@ -8,14 +8,7 @@ class Scanner
 
   def recent_listings
     html = get_page_html(build_url)
-    listings = PageParser.new().parse_into_listings html
-    filter_listings_by_query listings
-  end
-
-  def filter_listings_by_query listings
-    listings.select do |listing|
-      listing.name.downcase.include?(@query.downcase)
-    end
+    PageParser.new().parse_into_listings html
   end
 
   def get_page_html url
@@ -27,6 +20,6 @@ class Scanner
   end
 
   def build_url
-    "http://raleigh.craigslist.org/search/ele?srchType=A&zoomToPosting=&query=#@query&minAsk=&maxAsk="
+    "http://raleigh.craigslist.org/search/ele?srchType=T&zoomToPosting=&query=#@query&minAsk=&maxAsk="
   end
 end
