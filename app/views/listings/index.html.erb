@@ -1,7 +1,7 @@
 <div class="markets">
   <% @markets.each do |market| %>
       <label class="radio inline">
-        <input type="radio" name="marketOptions" value="<%= market %>"/> <%= market %>
+        <input type="radio" name="marketOptions" value="<%= market %>" <%= market == @markets.first() ? "checked" : "" %>/> <%= market %>
       </label>
   <% end %>
 </div>
