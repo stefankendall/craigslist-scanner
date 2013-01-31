@@ -11,17 +11,15 @@ class PageParser
   end
 
   def row_to_listing row
-    listing = Listing.new
-
     link = row.css('a')[0]
-    listing.name = link.text
-    listing.link = link['href']
+    name = link.text
+    link_href = link['href']
 
-    listing.price = row.css('.itempp')[0].text.strip
-    listing.location = row.css('.itempn')[0].text.gsub(/[\)\(]/, '').strip
+    price = row.css('.itempp')[0].text.strip
+    location = row.css('.itempn')[0].text.gsub(/[\)\(]/, '').strip
 
-    date_as_text = row.css('.itemdate')[0].text.strip
-    listing.date = Date.parse date_as_text
-    listing
+    date = row.css('.itemdate')[0].text.strip
+
+    Listing.new(:name => name, :link => link_href, :price => price, :location => location, :date => date)
   end
 end

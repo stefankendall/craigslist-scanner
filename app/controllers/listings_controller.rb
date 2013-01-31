@@ -4,12 +4,12 @@ class ListingsController < ApplicationController
   @@MARKETS = %w(raleigh lexington columbus)
 
   def index
-    listings = []
-    @@MARKETS.each do |market|
-      listings << Scanner.new(:query => 'iPad', :market => market).recent_listings()
-    end
+    #listings = []
+    #@@MARKETS.each do |market|
+    #  listings << Scanner.new(:query => 'iPad', :market => market).recent_listings()
+    #end
 
-    @listings = listings.flatten()
+    @listings = Listing.find(:all)
     @markets = @@MARKETS
   end
 end

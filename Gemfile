@@ -8,6 +8,9 @@ gem 'rails', '3.2.11'
 gem 'pg'
 gem 'nokogiri'
 
+gem 'delayed_job_active_record'
+gem 'clockwork'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
