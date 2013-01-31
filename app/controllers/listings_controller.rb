@@ -1,7 +1,15 @@
 require 'scanner'
 
 class ListingsController < ApplicationController
+  @@MARKETS = %w(raleigh lexington columbus)
+
   def index
-    @listings = Scanner.new(:query => 'iPad').recent_listings()
+    listings = []
+    @@MARKETS.each do |market|
+      listings << Scanner.new(:query => 'iPad', :market => market).recent_listings()
+    end
+
+    @listings = listings.flatten()
+    @markets = @@MARKETS
   end
 end

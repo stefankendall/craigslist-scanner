@@ -1,6 +1,14 @@
-<table class="table listings">
+<div class="markets">
+  <% @markets.each do |market| %>
+      <label class="radio inline">
+        <input type="radio" name="marketOptions" value="<%= market %>"/> <%= market %>
+      </label>
+  <% end %>
+</div>
+<table class=" table listings">
   <thead>
   <tr>
+    <th>Market</th>
     <th>Name</th>
     <th>Price</th>
     <th>Date</th>
@@ -20,7 +28,8 @@
                           "text-error"
                       end
       %>
-      <tr>
+      <tr data-market="<%= listing.market %>">
+        <td><%= listing.market %></td>
         <td class="name"><%= listing.name %></td>
         <td><%= listing.price %></td>
         <td><p class="<%= date_class %>"><%= listing.date.strftime("%b %d") %></p></td>
